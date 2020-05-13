@@ -17,7 +17,7 @@ const validUserId = (req, res, next) => {
   const { id } = req.params 
   Users.getById(id)
     .then(user => {
-    user ? req.user : res.status(400).json({error: `The ${id} is not a valid userID`})
+    user ? req.user : res.status(400).json({error: `ID ${id} is not a valid userID`})
     })
   next()
 }
@@ -25,7 +25,7 @@ const validUserId = (req, res, next) => {
 const validPostId = (req, res, next) => {
 	const { id } = req.params
 	Posts.getById(id).then((post) => {
-		post ? req.user : res.status(400).json({ error: `The ${id} is not a valid postID` })
+		post ? req.user : res.status(400).json({ error: `ID ${id} is not a valid postID` })
 	})
 	next()
 }
