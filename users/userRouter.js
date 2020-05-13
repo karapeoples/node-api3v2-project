@@ -1,12 +1,15 @@
 const express = require('express');
-
 const router = express.Router();
+const mw = require('../custom/middleware')
+const validUserId = mw.validUserId
+const validUser = mw.validUser
+const validPost = mw.validPost
 
-router.post('/', (req, res) => {
+router.post('/', validUser, (req, res) => {
   // do your magic!
 });
 
-router.post('/:id/posts', (req, res) => {
+router.post('/:id/posts', validUserId, validPost, (req, res) => {
   // do your magic!
 });
 
@@ -14,34 +17,22 @@ router.get('/', (req, res) => {
   // do your magic!
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', validUserId (req, res) => {
   // do your magic!
 });
 
-router.get('/:id/posts', (req, res) => {
+router.get('/:id/posts', validUserId, (req, res) => {
   // do your magic!
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', validUserId, (req, res) => {
   // do your magic!
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', validUserId, (req, res) => {
   // do your magic!
 });
 
-//custom middleware
 
-function validateUserId(req, res, next) {
-  // do your magic!
-}
-
-function validateUser(req, res, next) {
-  // do your magic!
-}
-
-function validatePost(req, res, next) {
-  // do your magic!
-}
 
 module.exports = router;
